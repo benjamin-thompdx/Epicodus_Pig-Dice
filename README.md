@@ -25,16 +25,24 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 
 ## Setup/Installation Requirements
 
-_In Terminal_
-* _Navigate to where you want this application to be saved, i.e.:_
-```cd desktop```
-* _Clone the file from GitHub with HTTPS_
-```git clone https://github.com/kwicz/beep-boop.git```
-* _Open file in your preferred text editor_
-* _On Mac: ```open -a {your text editor} beep-boop```
-* _On Windows: ```beep-boop```_
+_In Terminal:_
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+* Navigate to where you want this application to be saved, i.e.:
+```cd desktop```
+* Clone the file from GitHub with HTTPS
+```git clone https://github.com/kwicz/beep-boop.git```
+* Open file in your preferred text editor
+* On Mac: ```open -a {your text editor} beep-boop```
+* On Windows: ```beep-boop```
+
+_To Download Manually:_
+
+* Navigate to https://github.com/kwicz/beep-boop.
+* Click green "Clone or Download" button.
+* Click "Download ZIP".
+* Click downloaded file to unzip.
+* Open folder called "beep-boop-master".
+* Right click "index.html" and select your preferred browser or text editor.
 
 ## Known Bugs
 
