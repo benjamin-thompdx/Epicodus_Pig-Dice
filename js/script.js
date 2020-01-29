@@ -11,7 +11,8 @@ function Game() {
 
 function checkRoll(game, roll) {
     if (game.points.includes(roll)) {
-        console.log(game.tempScore += roll);
+        game.tempScore += roll;
+        $("#running-total").html(game.tempScore);
     } else {
         nextTurn(game);
     }
@@ -21,25 +22,32 @@ function checkRoll(game, roll) {
 function nextTurn(game, tempScore) {
     if (game.turn === "player1") {
         if (tempScore) {
-            game.player1Score = tempScore;
-            checkWinner(game.player1Score);
+            game.player1Score += tempScore;
+            $("#player1-score").html(game.player1Score);
+            checkWinner(game, game.player1Score);
         }
         game.turn = "player2"
     } else {
         if (tempScore) {
-            game.player2Score = tempScore;
-            checkWinner(game.player2Score);
+            game.player2Score += tempScore;
+            $("#player2-score").html(game.player2Score);
+            checkWinner(game, game.player2Score);
         }
         game.turn = "player1"
     } 
     game.tempScore = 0
-    console.log(game, "game");
+    $("#running-total").html(game.tempScore);;
 }
 
-function checkWinner(score) {
-    if (score >= 100) {
-        alert(player.turn + " has won the game!");
+function checkWinner(game, score) {
+    if (score >= 20) {
+        alert(game.turn + " has won the game!");
         var game = new Game;
+        $("#running-total").html("0");
+        $("#player1-score").html("0");
+        $("#player2-score").html("0");
+        $("#roll-result").html("0");
+
     }
 }
 
@@ -49,7 +57,7 @@ $(document).ready(function(){
     var game = new Game()
     $("#roll").click(function() {
         var die = Math.floor((Math.random() *6) +1);
-        console.log(die)
+        $("#roll-result").html(die);
         checkRoll (game, die);
     });
     $("#hold").click(function() {
