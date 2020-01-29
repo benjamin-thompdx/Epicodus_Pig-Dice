@@ -22,16 +22,25 @@ function nextTurn(game, tempScore) {
     if (game.turn === "player1") {
         if (tempScore) {
             game.player1Score = tempScore;
+            checkWinner(game.player1Score);
         }
         game.turn = "player2"
     } else {
         if (tempScore) {
             game.player2Score = tempScore;
+            checkWinner(game.player2Score);
         }
         game.turn = "player1"
     } 
     game.tempScore = 0
     console.log(game, "game");
+}
+
+function checkWinner(score) {
+    if (score >= 100) {
+        alert(player.turn + " has won the game!");
+        var game = new Game;
+    }
 }
 
 //User-Logic
@@ -43,5 +52,8 @@ $(document).ready(function(){
         console.log(die)
         checkRoll (game, die);
     });
-
+    $("#hold").click(function() {
+        nextTurn(game, game.tempScore);
+        console.log(game);
+    });
 });
