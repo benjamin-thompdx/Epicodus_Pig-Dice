@@ -60,7 +60,7 @@ function newGame(){
 
 //User-Logic
 
-(document).ready(function(){
+$(document).ready(function(){
     var game = new Game()
     $("#player1-panel").css("background-color", "lightblue");
     $("#roll").click(function() {
