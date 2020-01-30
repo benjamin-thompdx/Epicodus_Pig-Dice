@@ -2,8 +2,8 @@
 
 function Game() {
     this.turn = "player1";
-    this.player1Score = 0
-    this.player2Score = 0
+    this.player1Score = 0;
+    this.player2Score = 0;
     this.points = [2,3,4,5,6];
     this.tempScore = 0; 
 }
@@ -22,7 +22,6 @@ function nextTurn(game, tempScore) {
         if (tempScore) {
             game.player1Score += tempScore;
             $("#player1-score").html(game.player1Score);
-            checkWinner(game, game.player1Score);
         }
         game.turn = "player2";
         $("#player2-panel").css("background-color", "lightblue");
@@ -31,18 +30,17 @@ function nextTurn(game, tempScore) {
         if (tempScore) {
             game.player2Score += tempScore;
             $("#player2-score").html(game.player2Score);
-            checkWinner(game, game.player2Score);
         }
         game.turn = "player1";
         $("#player1-panel").css("background-color", "lightblue");
         $("#player2-panel").css("background-color", "whitesmoke");
     } 
-    game.tempScore = 0
-    $("#running-total").html(game.tempScore);;
+    game.tempScore = 0;
+    $("#running-total").html(game.tempScore);
 }
 
-function checkWinner(game, score) {
-    if (score >= 100) {
+function checkWinner(game) {
+    if (game.player1Score >= 20 || game.player2Score >=20) {
         alert(game.turn + " has won the game!");
         newGame();
     }
@@ -57,11 +55,10 @@ function newGame(){
         $("#player1-panel").css("background-color", "lightblue");
 }
 
-
 //User-Logic
 
 $(document).ready(function(){
-    var game = new Game()
+    var game = new Game();
     $("#player1-panel").css("background-color", "lightblue");
     $("#roll").click(function() {
         var die = Math.floor((Math.random() *6) +1);
@@ -69,6 +66,7 @@ $(document).ready(function(){
         checkRoll (game, die);
     });
     $("#hold").click(function() {
+        checkWinner(game);
         nextTurn(game, game.tempScore);
     });
     $("#new-game").click(function() {
