@@ -7,7 +7,7 @@
 
 ## Preview
 
-[![Landing Page Preview](url-for-img)]
+![Landing Page Preview](pig-dice.png)
 
 **[View Live Preview](https://kwicz.github.io/pig-dice/)**
 
