@@ -1,6 +1,5 @@
 // Business-Logic
 
-//
 function Game() {
     this.turn = "player1";
     this.player1Score = 0
@@ -16,7 +15,6 @@ function checkRoll(game, roll) {
     } else {
         nextTurn(game);
     }
-
 }
 
 function nextTurn(game, tempScore) {
@@ -44,7 +42,7 @@ function nextTurn(game, tempScore) {
 }
 
 function checkWinner(game, score) {
-    if (score >= 20) {
+    if (score >= 100) {
         alert(game.turn + " has won the game!");
         newGame();
     }
@@ -59,9 +57,10 @@ function newGame(){
         $("#player1-panel").css("background-color", "lightblue");
 }
 
+
 //User-Logic
 
-$(document).ready(function(){
+(document).ready(function(){
     var game = new Game()
     $("#player1-panel").css("background-color", "lightblue");
     $("#roll").click(function() {
@@ -71,7 +70,6 @@ $(document).ready(function(){
     });
     $("#hold").click(function() {
         nextTurn(game, game.tempScore);
-        console.log(game);
     });
     $("#new-game").click(function() {
         newGame();
